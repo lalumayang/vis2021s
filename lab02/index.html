@@ -1,14 +1,306 @@
 <!DOCTYPE html>
-<html lang="zh-Hant-TW">
+
+<html>
   <head>
-    <meta charset="utf-8">
-    <title>D3 Page Template</title>
-    <script src="http://d3js.org/d3.v6.min.js" charset="utf-8"></script> <!-- v6.5.0 -->
-</head>
-<body>
-    <script type="text/javascript">
-      // Your beautiful D3 code will go here
+    <script src="https://d3js.org/d3.v4.js"></script>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@900&display=swap");
+
+      div,
+      ul {
+        border: solid black 1px;
+        margin: 5px;
+        padding: 10px;
+        background-color: rgba(255, 255, 128, 0.1);
+      }
+
+      div:hover,
+      ul:hover {
+        background-color: rgba(255, 128, 128, 0.1);
+      }
+
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        padding: 10px;
+        background-color: rgba(255, 255, 0, 0.02);
+      }
+
+      svg {
+        font-family: "Noto Serif JP", serif;
+      }
+
+      #dropfile {
+        height: 5%;
+        width: 100%;
+        border-style: dotted;
+        display: block;
+        text-align: center;
+        animation-name: oxxo;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        padding: 10px;
+        background-color: rgba(255, 255, 0, 0.1);
+        font-family: "Noto Serif JP", serif;
+        margin-bottom: 10px;
+      }
+      #dropfile:hover {
+        background-color: rgba(128, 255, 255, 0.1);
+      }
+      @keyframes oxxo {
+        from {
+          border-style: dotted;
+          border-color: blue;
+          color: blue;
+        }
+        to {
+          border-style: solid;
+          border-color: red;
+          color: crimson;
+        }
+      }
+
+      #treemap {
+        height: 95%;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div>Lab 02 treemap</div>
+    <ul>
+      <li>遠距教學授課防疫演練: 2021.03.18 (四)</li>
+      <li>上台報告: 2021.04.01 (四)</li>
+      <li><a href="https://www.d3-graph-gallery.com/graph/treemap_custom.html">Treemap customization in d3.js</a></li>
+      <li>
+        <a href="http://blog.infographics.tw/2015/10/d3js-tutorial-treemap-and-budget/"
+          >D3.js 實戰 － 利用 Treemap Layout 將政府預算視覺化</a
+        >
+      </li>
+    </ul>
+
+    <div id="dropfile" for="csvfile">CSV 資料扔過來! Drop your CSV here.</div>
+    <div>新北市不動產實價登錄</div>
+    <div id="treemap"></div>
+
+    <script>
+      //產生SVG
+      function mkSVG(container, house, data) {
+        console.log(data);
+        const treemap = document.createElement("div");
+
+        const margin = { top: 10, right: 10, bottom: 10, left: 10 };
+        const height = container.clientHeight - margin.top - margin.bottom;
+        const width = container.clientWidth - margin.left - margin.right;
+
+        const svg = d3
+          .select(treemap)
+          .append("svg")
+          .attr("width", width + margin.left + margin.right)
+          .attr("height", height + margin.top + margin.bottom)
+          .append("g");
+
+        //利用d3.hierarchy產生x y的資料
+        const d3ds = d3.hierarchy(data).sum(({ value }) => value);
+        console.log(d3ds);
+
+        //設定svg位置
+        d3.treemap().size([width, height]).paddingTop(45).paddingRight(15).paddingInner(10)(d3ds);
+
+        //設定顏色
+        const color = d3
+          .scaleOrdinal()
+          .domain(house)
+          .range([
+            "#402D54",
+            "#D18975",
+            "#8FD175",
+            "#ff66ff",
+            "#ffb366",
+            "#80ff80",
+            "#d279a6",
+            "#ff6633",
+            "#6600ff",
+            "#00bfff",
+            "#53c653",
+            "#ff8000",
+          ]);
+
+        //設定透明度，分數越低越透明
+        const opacity = d3.scaleLinear().domain([100, 50]).range([1, 0.1]);
+
+        //化長方形
+        svg
+          .selectAll("rectangle")
+          .data(d3ds.leaves())
+          .enter()
+          .append("rect")
+          .attr("x", ({ x0 }) => x0)
+          .attr("y", ({ y0 }) => y0)
+          .attr("width", ({ x0, x1 }) => x1 - x0)
+          .attr("height", ({ y0, y1 }) => y1 - y0)
+          .style("stroke", "red")
+          .style("fill", ({ parent }) => color(parent.data.name))
+          .style("opacity", (d) => opacity(d.data.value));
+
+        //鄉鎮市區
+        svg
+          .selectAll("houseArea")
+          .data(d3ds.leaves())
+          .enter()
+          .append("text")
+          .attr("x", ({ x0 }) => x0 + 1)
+          .attr("y", ({ y0 }) => y0 + 15)
+          .text(({ data }) => data.area) //data.type
+          .attr("font-size", ".7rem")
+          .attr("fill", "white");
+
+        //寫區域資訊
+        svg
+          .selectAll("houseRank")
+          .data(d3ds.leaves())
+          .enter()
+          .append("text")
+          .attr("x", ({ x0 }) => x0 + 1)
+          .attr("y", ({ y0 }) => y0 + 28)
+          .text(({ data }) => "No." + (data.rank + 1))
+          .attr("font-size", ".6rem")
+          .attr("fill", "white");
+
+        svg
+          .selectAll("houseUnit")
+          .data(d3ds.leaves())
+          .enter()
+          .append("text")
+          .attr("x", ({ x0 }) => x0 + 1)
+          .attr("y", ({ y0 }) => y0 + 42)
+          .text(({ data }) => "單價元:" + parseInt(data.unit) + "/平方公尺")
+          .attr("font-size", ".6rem")
+          .attr("fill", "white");
+
+        svg
+          .selectAll("housetotal")
+          .data(d3ds.leaves())
+          .enter()
+          .append("text")
+          .attr("x", ({ x0 }) => x0 + 1)
+          .attr("y", ({ y0 }) => y0 + 55)
+          .text(({ data }) => " 房子總數:" + parseInt(data.total))
+          .attr("font-size", ".6rem")
+          .attr("fill", "white");
+
+        svg
+          .selectAll("labertory")
+          .data(
+            d3ds.descendants().filter(function (d) {
+              return d.depth == 1;
+            })
+          )
+          .enter()
+          .append("text")
+          .attr("x", ({ x0 }) => x0 + 1)
+          .attr("y", ({ y0 }) => y0 + 21)
+          .text(({ data }) => data.name)
+          .attr("font-size", "1.1rem")
+          .attr("fill", "black");
+
+        return treemap;
+      }
+    </script>
+
+    <script>
+      window.addEventListener("load", () => {
+        const treemapContainer = document.getElementById("treemap");
+
+        document.getElementById("dropfile").addEventListener("dragover", (evt) => {
+          evt.preventDefault();
+        });
+
+        document.getElementById("dropfile").addEventListener("drop", (evt) => {
+          evt.preventDefault();
+
+          const { files } = evt.dataTransfer;
+
+          if (files.length) {
+            if (treemapContainer.innerHTML.length) {
+              treemapContainer.innerHTML = "";
+            }
+
+            const csvFile = files[0];
+
+            //讀取csv
+            const fr = new FileReader();
+
+            fr.onload = () => {
+              const houseType = [];
+              const districtArr = fr.result.split("\n").map((e) => e.split(","));
+
+              const d3Json = {
+                children: [],
+                name: "New Taipei City",
+              };
+
+              //先由大到小排列，算出名次、級距、再算出分數
+              const mapping = new Array();
+              const mappingRank = new Array();
+              const houseSet = districtArr
+                .sort((x, y) => {
+                  let a = parseInt(x[4]);
+                  let b = parseInt(y[4]);
+                  return b - a;
+                })
+                .map((e) => parseInt(e[4]));
+
+              const step = (100 - 60) / houseSet.length;
+
+              for (let i of houseSet) {
+                const idx = houseSet.indexOf(i);
+                let score;
+                if (idx == -1) {
+                  score = 50;
+                } else {
+                  score = (100 - step * idx).toFixed(2);
+                }
+                mapping[i] = score;
+                mappingRank[i] = idx;
+              }
+              console.log(mappingRank);
+
+              for (let i of districtArr) {
+                const houseName = i[2]; //0
+
+                if (houseType.indexOf(houseName) == -1) {
+                  houseType.push(houseName);
+                  d3Json.children.push({
+                    name: houseName,
+                    children: [],
+                  });
+                }
+
+                const unit = parseInt(i[4]);
+
+                d3Json.children
+                  .find((e) => e.name == houseName)
+                  .children.push({
+                    type: i[2],
+                    area: i[0],
+                    unit,
+                    total: parseInt(i[1]),
+                    value: parseInt(mapping[unit]),
+                    rank: parseInt(mappingRank[unit]),
+                  });
+              }
+              treemapContainer.appendChild(mkSVG(treemapContainer, houseType, d3Json));
+            };
+
+            fr.readAsText(csvFile);
+          }
+        });
+      });
     </script>
   </body>
 </html>
-  
