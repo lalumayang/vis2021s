@@ -1,0 +1,611 @@
+/* yang */
+.line-yang-1 {
+  clip-path: url(#yang-1);
+
+  stroke-dasharray: 75;
+  animation-name: draw-yang-1;
+}
+@keyframes draw-yang-1 {
+  0% {
+    stroke-dashoffset: 75;
+  }
+
+  7% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-yang-2 {
+  clip-path: url(#yang-2);
+
+  stroke-dasharray: 250;
+  animation-name: draw-yang-2;
+}
+@keyframes draw-yang-2 {
+  0%,
+  7% {
+    stroke-dashoffset: 250;
+  }
+
+  15% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-yang-3 {
+  clip-path: url(#yang-3);
+
+  stroke-dasharray: 124;
+  animation-name: draw-yang-3;
+}
+@keyframes draw-yang-3 {
+  0%,
+  15% {
+    stroke-dashoffset: 124;
+  }
+
+  22% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-yang-4 {
+  clip-path: url(#yang-4);
+
+  stroke-dasharray: 201;
+  animation-name: draw-yang-4;
+}
+@keyframes draw-yang-4 {
+  0%,
+  22% {
+    stroke-dashoffset: 201;
+  }
+
+  29% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-yang-5 {
+  clip-path: url(#yang-5);
+
+  stroke-dasharray: 200;
+  animation-name: draw-yang-5;
+}
+@keyframes draw-yang-5 {
+  0%,
+  29% {
+    stroke-dashoffset: 200;
+  }
+
+  36% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-yang-6 {
+  clip-path: url(#yang-6);
+
+  stroke-dasharray: 200;
+  animation-name: draw-yang-6;
+}
+@keyframes draw-yang-6 {
+  0%,
+  36% {
+    stroke-dashoffset: 200;
+  }
+
+  43% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-yang-7 {
+  clip-path: url(#yang-7);
+
+  stroke-dasharray: 200;
+  animation-name: draw-yang-7;
+}
+@keyframes draw-yang-7 {
+  0%,
+  43% {
+    stroke-dashoffset: 200;
+  }
+
+  50% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-yang-8 {
+  clip-path: url(#yang-8);
+
+  stroke-dasharray: 200;
+  animation-name: draw-yang-8;
+}
+@keyframes draw-yang-8 {
+  0%,
+  50% {
+    stroke-dashoffset: 200;
+  }
+
+  57% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-yang-9 {
+  clip-path: url(#yang-9);
+
+  stroke-dasharray: 200;
+  animation-name: draw-yang-9;
+}
+@keyframes draw-yang-9 {
+  0%,
+  57% {
+    stroke-dashoffset: 200;
+  }
+
+  64% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-yang-10 {
+  clip-path: url(#yang-10);
+
+  stroke-dasharray: 200;
+  animation-name: draw-yang-10;
+}
+@keyframes draw-yang-10 {
+  0%,
+  64% {
+    stroke-dashoffset: 200;
+  }
+
+  71% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-yang-11 {
+  clip-path: url(#yang-11);
+
+  stroke-dasharray: 250;
+  animation-name: draw-yang-11;
+}
+@keyframes draw-yang-11 {
+  0%,
+  71% {
+    stroke-dashoffset: 250;
+  }
+
+  78% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-yang-12 {
+  clip-path: url(#yang-12);
+
+  stroke-dasharray: 200;
+  animation-name: draw-yang-12;
+}
+@keyframes draw-yang-12 {
+  0%,
+  78% {
+    stroke-dashoffset: 200;
+  }
+
+  86% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-yang-13 {
+  clip-path: url(#yang-13);
+
+  stroke-dasharray: 200;
+  animation-name: draw-yang-13;
+}
+@keyframes draw-yang-13 {
+  0%,
+  86% {
+    stroke-dashoffset: 200;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* chen */
+.line-chen-1 {
+  clip-path: url(#chen-1);
+
+  stroke-dasharray: 75;
+  animation-name: draw-chen-1;
+}
+@keyframes draw-chen-1 {
+  0% {
+    stroke-dashoffset: 75;
+  }
+
+  10% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-chen-2 {
+  clip-path: url(#chen-2);
+
+  stroke-dasharray: 200;
+  animation-name: draw-chen-2;
+}
+@keyframes draw-chen-2 {
+  0%,
+  10% {
+    stroke-dashoffset: 200;
+  }
+
+  20% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-chen-3 {
+  clip-path: url(#chen-3);
+
+  stroke-dasharray: 300;
+  animation-name: draw-chen-3;
+}
+@keyframes draw-chen-3 {
+  0%,
+  20% {
+    stroke-dashoffset: 300;
+  }
+
+  30% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-chen-4 {
+  clip-path: url(#chen-4);
+
+  stroke-dasharray: 201;
+  animation-name: draw-chen-4;
+}
+@keyframes draw-chen-4 {
+  0%,
+  30% {
+    stroke-dashoffset: 201;
+  }
+
+  40% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-chen-5 {
+  clip-path: url(#chen-5);
+
+  stroke-dasharray: 200;
+  animation-name: draw-chen-5;
+}
+@keyframes draw-chen-5 {
+  0%,
+  40% {
+    stroke-dashoffset: 200;
+  }
+
+  50% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-chen-6 {
+  clip-path: url(#chen-6);
+
+  stroke-dasharray: 200;
+  animation-name: draw-chen-6;
+}
+@keyframes draw-chen-6 {
+  0%,
+  50% {
+    stroke-dashoffset: 200;
+  }
+
+  60% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-chen-7 {
+  clip-path: url(#chen-7);
+
+  stroke-dasharray: 200;
+  animation-name: draw-chen-7;
+}
+@keyframes draw-chen-7 {
+  0%,
+  60% {
+    stroke-dashoffset: 200;
+  }
+
+  70% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-chen-8 {
+  clip-path: url(#chen-8);
+
+  stroke-dasharray: 200;
+  animation-name: draw-chen-8;
+}
+@keyframes draw-chen-8 {
+  0%,
+  70% {
+    stroke-dashoffset: 200;
+  }
+
+  80% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-chen-9 {
+  clip-path: url(#chen-9);
+
+  stroke-dasharray: 200;
+  animation-name: draw-chen-9;
+}
+@keyframes draw-chen-9 {
+  0%,
+  80% {
+    stroke-dashoffset: 200;
+  }
+
+  90% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-chen-10 {
+  clip-path: url(#chen-10);
+
+  stroke-dasharray: 200;
+  animation-name: draw-chen-10;
+}
+@keyframes draw-chen-10 {
+  0%,
+  90% {
+    stroke-dashoffset: 200;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* yu */
+.line-yu-1 {
+  clip-path: url(#yu-1);
+
+  stroke-dasharray: 75;
+  animation-name: draw-yu-1;
+}
+@keyframes draw-yu-1 {
+  0% {
+    stroke-dashoffset: 75;
+  }
+
+  7% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-yu-2 {
+  clip-path: url(#yu-2);
+
+  stroke-dasharray: 250;
+  animation-name: draw-yu-2;
+}
+@keyframes draw-yu-2 {
+  0%,
+  7% {
+    stroke-dashoffset: 250;
+  }
+
+  15% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-yu-3 {
+  clip-path: url(#yu-3);
+
+  stroke-dasharray: 124;
+  animation-name: draw-yu-3;
+}
+@keyframes draw-yu-3 {
+  0%,
+  15% {
+    stroke-dashoffset: 124;
+  }
+
+  22% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-yu-4 {
+  clip-path: url(#yu-4);
+
+  stroke-dasharray: 201;
+  animation-name: draw-yu-4;
+}
+@keyframes draw-yu-4 {
+  0%,
+  22% {
+    stroke-dashoffset: 201;
+  }
+
+  29% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-yu-5 {
+  clip-path: url(#yu-5);
+
+  stroke-dasharray: 200;
+  animation-name: draw-yu-5;
+}
+@keyframes draw-yu-5 {
+  0%,
+  29% {
+    stroke-dashoffset: 200;
+  }
+
+  36% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-yu-6 {
+  clip-path: url(#yu-6);
+
+  stroke-dasharray: 200;
+  animation-name: draw-yu-6;
+}
+@keyframes draw-yu-6 {
+  0%,
+  36% {
+    stroke-dashoffset: 200;
+  }
+
+  43% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-yu-7 {
+  clip-path: url(#yu-7);
+
+  stroke-dasharray: 200;
+  animation-name: draw-yu-7;
+}
+@keyframes draw-yu-7 {
+  0%,
+  43% {
+    stroke-dashoffset: 200;
+  }
+
+  50% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-yu-8 {
+  clip-path: url(#yu-8);
+
+  stroke-dasharray: 200;
+  animation-name: draw-yu-8;
+}
+@keyframes draw-yu-8 {
+  0%,
+  50% {
+    stroke-dashoffset: 200;
+  }
+
+  57% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-yu-9 {
+  clip-path: url(#yu-9);
+
+  stroke-dasharray: 200;
+  animation-name: draw-yu-9;
+}
+@keyframes draw-yu-9 {
+  0%,
+  57% {
+    stroke-dashoffset: 200;
+  }
+
+  64% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-yu-10 {
+  clip-path: url(#yu-10);
+
+  stroke-dasharray: 200;
+  animation-name: draw-yu-10;
+}
+@keyframes draw-yu-10 {
+  0%,
+  64% {
+    stroke-dashoffset: 200;
+  }
+
+  71% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-yu-11 {
+  clip-path: url(#yu-11);
+
+  stroke-dasharray: 250;
+  animation-name: draw-yu-11;
+}
+@keyframes draw-yu-11 {
+  0%,
+  71% {
+    stroke-dashoffset: 250;
+  }
+
+  78% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-yu-12 {
+  clip-path: url(#yu-12);
+
+  stroke-dasharray: 200;
+  animation-name: draw-yu-12;
+}
+@keyframes draw-yu-12 {
+  0%,
+  78% {
+    stroke-dashoffset: 200;
+  }
+
+  86% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.line-yu-13 {
+  clip-path: url(#yu-13);
+
+  stroke-dasharray: 200;
+  animation-name: draw-yu-13;
+}
+@keyframes draw-yu-13 {
+  0%,
+  86% {
+    stroke-dashoffset: 200;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
